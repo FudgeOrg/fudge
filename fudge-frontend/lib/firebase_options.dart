@@ -60,7 +60,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '830148968998',
     projectId: 'fudge-255d5',
     storageBucket: 'fudge-255d5.appspot.com',
-    iosClientId: '830148968998-h4kaipoko778i7crk3ia86bunkelaglg.apps.googleusercontent.com',
+    iosClientId:
+        '830148968998-h4kaipoko778i7crk3ia86bunkelaglg.apps.googleusercontent.com',
     iosBundleId: 'com.awesome.fudge',
   );
 }
