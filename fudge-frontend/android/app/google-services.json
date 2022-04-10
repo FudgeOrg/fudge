@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "830148968998",
+    "project_id": "fudge-255d5",
+    "storage_bucket": "fudge-255d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830148968998:android:2b3edffe1fda2f9d065ce7",
+        "android_client_info": {
+          "package_name": "com.awesome.fudge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830148968998-hvv8sgdu4stvg7b93rjt4dh4o4j6ns6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtTddj3AenmSrhS3xsFQcWXw06pJX4_WA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830148968998-hvv8sgdu4stvg7b93rjt4dh4o4j6ns6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "830148968998-rff8jb0qol83umn0v2fg093et14pm686.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.awsome.fudge"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
