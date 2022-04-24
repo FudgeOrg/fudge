@@ -50,11 +50,11 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.fastfood),
             label: 'Recipes',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
+            icon: Icon(Icons.list),
             label: 'Inventory',
           ),
         ],
