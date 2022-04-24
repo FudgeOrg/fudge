@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fudge/database.dart';
@@ -8,11 +9,24 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+
+  FirebaseAuth authInstance = FirebaseAuth.instance;
+  UserCredential userInstance = await authInstance.signInAnonymously();
+
+  runApp(MyApp(
+    user: userInstance.user,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  late final String userId;
+  MyApp({User? user, Key? key}) : super(key: key) {
+    if (user == null) {
+      userId = "undefined";
+    } else {
+      userId = user.uid;
+    }
+  }
 
   // This widget is the root of your application.
   @override
@@ -31,7 +45,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: userId),
     );
   }
 }
@@ -55,10 +69,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final db = Database();
   var userName = '';
 
   void _printUsers() async {
-    final db = Database();
     final users = await db.getAllUsers();
 
     setState(() {
