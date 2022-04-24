@@ -2,13 +2,36 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fudge/user.dart';
 
 class Database {
-  List<User> getAllUsers() {
+
+  Future<List<User>> getAllUsers() async {
     List<User> users = [];
-    FirebaseFirestore.instance.collection('users').get().then((snapshot) {
-      snapshot.docs.forEach((doc) {
-        users.add(User.fromJson(doc.data()));
-      });
+    await FirebaseFirestore.instance.collection('users').get().then((snapshot) {
+      users = snapshot.docs.map((doc) => User.fromJson(doc.data())).toList();
     });
     return users;
+  }
+
+  Future<User?> getUser(String id) async {
+    User? user;
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(id)
+        .get()
+        .then((snapshot) {
+          if(snapshot.exists) {
+            user = User.fromJson(snapshot.data());
+          }else{
+            user = null;
+          }
+    });
+    return user;
+  }
+
+  Future<void> addUser(User user) async {
+    await FirebaseFirestore.instance.collection('users').add(user.toJson());
+  }
+
+  Future<void> removeUser(String id) async {
+    await FirebaseFirestore.instance.collection('users').doc(id).delete();
   }
 }
