@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fudge/user.dart';
+import 'package:fudge/src/user.dart';
 
 class Database {
   Future<List<User>> getAllUsers() async {
