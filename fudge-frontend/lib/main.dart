@@ -55,18 +55,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   var userName = '';
 
   void _printUsers() async {
-
     final db = Database();
     final users = await db.getAllUsers();
 
-    setState((){
+    setState(() {
       userName = users.first.firstname;
     });
-
   }
 
   @override

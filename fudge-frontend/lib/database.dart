@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fudge/user.dart';
 
 class Database {
-
   Future<List<User>> getAllUsers() async {
     List<User> users = [];
     await FirebaseFirestore.instance.collection('users').get().then((snapshot) {
@@ -18,11 +17,11 @@ class Database {
         .doc(id)
         .get()
         .then((snapshot) {
-          if(snapshot.exists) {
-            user = User.fromJson(snapshot.data());
-          }else{
-            user = null;
-          }
+      if (snapshot.exists) {
+        user = User.fromJson(snapshot.data());
+      } else {
+        user = null;
+      }
     });
     return user;
   }
