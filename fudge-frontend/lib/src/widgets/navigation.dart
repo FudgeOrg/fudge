@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNavWidget extends StatefulWidget {
-  const BottomNavWidget({Key? key}) : super(key: key);
+  const BottomNavWidget({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   State<BottomNavWidget> createState() => _BottomNavWidgetState();
@@ -38,7 +39,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bottom Navigation'),
+        title: Text(widget.title),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
