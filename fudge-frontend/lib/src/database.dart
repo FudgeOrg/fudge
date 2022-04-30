@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fudge/src/user.dart';
+import 'package:fudge/src/models/user.dart';
 
 class Database {
   Future<List<User>> getAllUsers() async {
@@ -24,6 +24,13 @@ class Database {
       }
     });
     return user;
+  }
+
+  Future<void> updateUser(User user) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.id)
+        .update(user.toJson());
   }
 
   Future<void> addUser(User user) async {
